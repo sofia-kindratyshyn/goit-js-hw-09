@@ -1,0 +1,59 @@
+.feedback-form {
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: auto;
+    max-width: 408px;
+    padding: 24px;
+}
+
+input {
+    max-width: 360px;
+    padding: 8px 16px;
+    border: 1px solid #808080;
+    border-radius: 4px;
+}
+
+textarea {
+    max-width: 360px;
+    padding: 8px 16px;
+    border: 1px solid #808080;
+    border-radius: 4px;
+    resize: none;
+}
+
+textarea::placeholder {
+    font-family: 'Montserrat', sans-serif;
+}
+
+button {
+    max-width: 95px;
+    font-family: 'Montserrat', sans-serif;
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: none;
+    background-color: #4E75FF;
+    margin-top: 8px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+    color: #fff;
+    transition: background-color 250ms ease-in;
+}
+
+button:hover {
+    background-color: #6c8cff;
+}
+
+label {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 8px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+    color: #2e2f42;
+}
