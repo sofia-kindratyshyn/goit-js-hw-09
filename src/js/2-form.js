@@ -10,14 +10,16 @@ const formdata = {
 form.elements.email.value = formdata.email;
 form.elements.message.value = formdata.message;
 
-form.addEventListener('input', event => {
+form.addEventListener('input', handleInput);
+function handleInput(event) {
   if (event.target.name === 'email' || event.target.name === 'message') {
     formdata[event.target.name] = event.target.value;
     localStorage.setItem(key, JSON.stringify(formdata));
   }
-});
+}
 
-form.addEventListener('submit', event => {
+form.addEventListener('submit', handleSumbit);
+function handleSumbit(event) {
   event.preventDefault();
 
   if (!formdata.email.trim() || !formdata.message.trim()) {
@@ -30,4 +32,4 @@ form.addEventListener('submit', event => {
   form.reset();
   formdata.email = '';
   formdata.message = '';
-});
+}
