@@ -1,21 +1,21 @@
 const key = 'feedback-form-state';
 const form = document.querySelector('form');
 
-let formdata = {
+let formData = {
   email: '',
   message: '',
 };
 
 form.addEventListener('input', handleInput);
 function handleInput(event) {
-  formdata[event.target.name] = event.target.value;
-  localStorage.setItem(key, JSON.stringify(formdata));
+  formData[event.target.name] = event.target.value;
+  localStorage.setItem(key, JSON.stringify(formData));
 }
 
 let savedData = JSON.parse(localStorage.getItem(key));
 
 if (!(savedData == null)) {
-  console.log(savedData);
+  console.log(savedData); // Виводить збережені дані при завантаженні сторінки
 }
 
 if (
@@ -27,25 +27,21 @@ if (
   form.elements.message.value = savedData.message;
 }
 
-form.addEventListener('submit', handleSumbit);
-function handleSumbit(event) {
+form.addEventListener('submit', handleSubmit);
+function handleSubmit(event) {
   event.preventDefault();
 
-  if (
-    event.target.elements.email.value.trim() == '' ||
-    event.target.elements.message.value.trim() == ''
-  ) {
+  if (formData.email.trim() === '' || formData.message.trim() === '') {
     alert('Fill please all fields');
     return;
   }
+
+  console.log(formData);
+
   localStorage.removeItem(key);
-
-  let submittedData = {
-    email: form.elements.email.value,
-    message: form.elements.message.value,
+  formData = {
+    email: '',
+    message: '',
   };
-
-  console.log(submittedData);
-
   form.reset();
 }
