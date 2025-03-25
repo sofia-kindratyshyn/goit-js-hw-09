@@ -15,7 +15,7 @@ function handleInput(event) {
 let savedData = JSON.parse(localStorage.getItem(key));
 
 if (!(savedData == null)) {
-  console.log(savedData); // Виводить збережені дані при завантаженні сторінки
+  console.log(savedData);
 }
 
 if (
@@ -31,7 +31,10 @@ form.addEventListener('submit', handleSubmit);
 function handleSubmit(event) {
   event.preventDefault();
 
-  if (formData.email.trim() === '' || formData.message.trim() === '') {
+  if (
+    form.elements.email.value.trim() === '' ||
+    form.elements.message.value.trim() === ''
+  ) {
     alert('Fill please all fields');
     return;
   }
@@ -39,9 +42,6 @@ function handleSubmit(event) {
   console.log(formData);
 
   localStorage.removeItem(key);
-  formData = {
-    email: '',
-    message: '',
-  };
+
   form.reset();
 }
